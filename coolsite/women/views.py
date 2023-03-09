@@ -3,8 +3,7 @@ from django.shortcuts import render, redirect
 
 
 def index(request):
-    return HttpResponse('Страница приложения women')
-
+    return render(request, 'women/index.html')
 
 def categories(request, catid):
     if request.GET:
@@ -14,7 +13,7 @@ def categories(request, catid):
 
 def archive(request, year):
     if int(year) > 2023:
-        return redirect('homep', permanent=False)
+        return redirect('home', permanent=False)
     return HttpResponse(f'<h1>Архив по годам</h1><p>{year}</p>')
 
 
